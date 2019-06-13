@@ -10,6 +10,7 @@ public class Story {
     private String title;
     private String description;
     private String loginAuthor;
+    private Boolean isPublic;
     @ManyToOne
     private Scene firstScene;
 
@@ -46,6 +47,14 @@ public class Story {
 
     public void setLoginAuthor(String loginAuthor) {
         this.loginAuthor = loginAuthor;
+    }
+
+    public Boolean getPublic() {
+        return isPublic;
+    }
+
+    public void setPublic(Boolean aPublic) {
+        isPublic = aPublic;
     }
 
     public Scene getFirstScene() {

@@ -11,6 +11,7 @@ public class Scene {
     private Story story;
     private String title;
     private String description;
+    private String imageURL;
 
     public Scene() {
     }
@@ -45,5 +46,13 @@ public class Scene {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getImageURL() {
+        return imageURL;
+    }
+
+    public void setImageURL(String imageURL) {
+        this.imageURL = imageURL;
     }
 }
