@@ -1,9 +1,19 @@
 package com.mesi.histoireHeros.model;
 
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+
 public class Choice {
+    @Id
+    @ManyToOne
     private int idOriginalScene;
+    @Id
+    @ManyToOne
     private int idTargetedScene;
     private String name;
+
+    public Choice() {
+    }
 
     public int getIdOriginalScene() {
         return idOriginalScene;

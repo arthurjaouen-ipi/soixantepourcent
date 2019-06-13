@@ -1,10 +1,19 @@
 package com.mesi.histoireHeros.model;
 
+import javax.persistence.*;
+
+@Entity
 public class Scene {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
-    private int idStory;
+    @ManyToOne
+    private Story story;
     private String title;
     private String description;
+
+    public Scene() {
+    }
 
     public int getId() {
         return id;
@@ -14,12 +23,12 @@ public class Scene {
         this.id = id;
     }
 
-    public int getIdStory() {
-        return idStory;
+    public Story getStory() {
+        return story;
     }
 
-    public void setIdStory(int idStory) {
-        this.idStory = idStory;
+    public void setStory(Story story) {
+        this.story = story;
     }
 
     public String getTitle() {

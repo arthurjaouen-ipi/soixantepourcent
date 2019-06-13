@@ -1,10 +1,18 @@
 package com.mesi.histoireHeros.model;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class User {
+    @Id
     private String login;
     private String password;
     private String username;
     private Boolean isAuthor;
+
+    public User() {
+    }
 
     public String getLogin() {
         return login;
