@@ -8,7 +8,10 @@
 }
 
 .story{
-	background-color: red;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-attachment: fixed;
+	background-size: cover;
 }
 
 .story-text{

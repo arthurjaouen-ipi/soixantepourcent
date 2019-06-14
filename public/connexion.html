@@ -24,39 +24,39 @@
 							<div class="row">
 								<div class="col-lg-6 col-sm-12 col-register">
 									<h2>Créer un compte</h2>
-									<form id="form-register" method="GET" action="">
+									<form id="form-register" method="GET" action="/isLogged">
 										<div class="form-group">
-											<label for="register-login">Nom d'utilisateur</label>
-											<input type="text" class="form-control form-control-sm" id="register-login" required>
+											<label for="login">Nom d'utilisateur</label>
+											<input type="text" class="form-control form-control-sm" id="login" required>
 										</div>
 										<div class="form-group">
-											<label for="register-password">Mot de passe</label>
-											<input type="password" class="form-control form-control-sm" id="register-password" required>
+											<label for="password">Mot de passe</label>
+											<input type="password" class="form-control form-control-sm" id="password" required>
 										</div>
 										<div class="form-group">
-											<label for="register-username">Pseudo</label>
-											<input type="text" class="form-control form-control-sm" id="register-username" required>
+											<label for="frontName">Pseudo</label>
+											<input type="text" class="form-control form-control-sm" id="frontName" required>
 										</div>
 										<div class="form-check" style="margin-bottom: 16px;">
-											<input type="radio" class="form-check-input" id="register-isreader" name="user-role" checked="true">
-											<label class="form-check-label" for="register-isreader" style="margin-right: 30px;">Lecteur</label>
+											<input type="radio" class="form-check-input" id="risReader" name="user-role" value="isReader" checked="true">
+											<label class="form-check-label" for="isReader" style="margin-right: 30px;">Lecteur</label>
 
-											<input type="radio" class="form-check-input" id="register-isauthor" name="user-role">
-											<label class="form-check-label" for="register-isauthor">Auteur</label>
+											<input type="radio" class="form-check-input" id="isAuthor" name="user-role" value="isAuthor">
+											<label class="form-check-label" for="isAuthor">Auteur</label>
 										</div>
 										<button type="submit" class="btn btn-success">S'inscrire</button>
 									</form>
 								</div>
 								<div class="col-lg-6 col-sm-12 col-login">
 									<h2>Connexion</h2>
-									<form id="form-login" method="GET" action="">
+									<form id="form-login" method="POST" action="/createUser">
 										<div class="form-group">
-											<label for="login-login">Nom d'utilisateur</label>
-											<input type="text" class="form-control form-control-sm" id="login-login">
+											<label for="login">Nom d'utilisateur</label>
+											<input type="text" class="form-control form-control-sm" id="login">
 										</div>
 										<div class="form-group">
-											<label for="login-password">Mot de passe</label>
-											<input type="password" class="form-control form-control-sm" id="login-password">
+											<label for="password">Mot de passe</label>
+											<input type="password" class="form-control form-control-sm" id="password">
 										</div>
 										<button type="submit" class="btn btn-success">Se connecter</button>
 									</form>
@@ -68,8 +68,4 @@
 			</div>
 		</div>
 	</body>
-	
-	<footer class="fixed-bottom">
-		SOIXANTEPOURCENT | Estelle Rivaud - Brenn Constant - Maxime Dufrasne - Thomas "Pallo" Palle - Arthur Jaouen
-	</footer>
 </html>

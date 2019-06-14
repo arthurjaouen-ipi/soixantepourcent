@@ -1,5 +1,8 @@
 body{
-	background: url(../img/img-foret.jpg) no-repeat center fixed;
+	background: url(../img/img-foret.jpg);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-attachment: fixed;
 	background-size: cover;
 }
 
