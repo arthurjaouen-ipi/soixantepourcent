@@ -1,0 +1,17 @@
+.navbar{
+	background-color: rgb(186, 186, 186);
+}
+
+.navbar-brand{
+	font-family: 'Parisienne', cursive;
+	font-size: 24px;
+}
+
+.main{
+	margin-top: 75px;
+}
+
+footer{
+	background-color: rgb(186, 186, 186);
+	text-align: center;
+}
