@@ -1,12 +1,15 @@
 package com.mesi.histoireHeros.controller;
 
+import com.mesi.histoireHeros.model.Scene;
 import com.mesi.histoireHeros.model.Story;
+import com.mesi.histoireHeros.repository.SceneRepository;
 import com.mesi.histoireHeros.repository.StoryRepository;
 import com.mesi.histoireHeros.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -15,12 +18,20 @@ public class StoryController {
     @Autowired
     private StoryRepository storyRepository;
     @Autowired
+    private SceneRepository sceneRepository;
+    @Autowired
     private UserService userService;
 
     @RequestMapping(method= RequestMethod.GET,
             value="/get")
     public List<Story> getStories() throws Exception {
-        return storyRepository.findAll();
+        ArrayList<Story> l = new ArrayList<>();
+        for(Story i : storyRepository.findAll()) {
+            if (i.getPublic()) {
+                l.add(i);
+            }
+        }
+        return l;
     }
 
     @RequestMapping(method= RequestMethod.GET,
@@ -30,7 +41,31 @@ public class StoryController {
         if (!userService.isValidUser(login, password)) {
             throw new Exception("Le login/password ne matche pas");
         }
+        if (!storyRepository.findOne((long) id).getPublic() &&
+                !storyRepository.findOne((long) id).getLoginAuthor().equals(login)) {
+            throw new Exception("Vous n'etes pas autorisé à visualiser cette histoire");
+        }
         return storyRepository.findOne((long) id);
+    }
+
+    @RequestMapping(method= RequestMethod.GET,
+            value="/get/{id}/scenes")
+    public List<Scene> getStoryScenes(@PathVariable("id") int id,
+                                      @RequestHeader("login") String login, @RequestHeader("password") String password) throws Exception {
+        if (!userService.isValidUser(login, password)) {
+            throw new Exception("Le login/password ne matche pas");
+        }
+        if (!storyRepository.findOne((long) id).getPublic() &&
+                !storyRepository.findOne((long) id).getLoginAuthor().equals(login)) {
+            throw new Exception("Vous n'etes pas autorisé à visualiser cette histoire");
+        }
+        ArrayList<Scene> l = new ArrayList<>();
+        for(Scene i : sceneRepository.findAll()) {
+            if (i.getStory().getId() == id) {
+                l.add(i);
+            }
+        }
+        return l;
     }
 
     @RequestMapping(method= RequestMethod.POST,
@@ -54,6 +89,9 @@ public class StoryController {
         if (!userService.isValidUser(login, password)) {
             throw new Exception("Le login/password ne matche pas");
         }
+        if (!storyRepository.findOne((long) id).getLoginAuthor().equals(login)) {
+            throw new Exception("Vous n'etes pas autorisé à modifier cette histoire");
+        }
         Story editedStory = storyRepository.getOne((long) id);
         editedStory.setDescription(story.getDescription());
         editedStory.setFirstScene(story.getFirstScene());
@@ -69,6 +107,9 @@ public class StoryController {
                            @RequestHeader("login") String login, @RequestHeader("password") String password) throws Exception {
         if (!userService.isValidUser(login, password)) {
             throw new Exception("Le login/password ne matche pas");
+        }
+        if (!storyRepository.findOne((long) id).getLoginAuthor().equals(login)) {
+            throw new Exception("Vous n'etes pas autorisé à supprimer cette histoire");
         }
         storyRepository.delete(storyRepository.getOne((long) id));
     }
