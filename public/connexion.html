@@ -16,15 +16,15 @@
 	<body>
 		<div id="modal-connection" class="modal" data-backdrop="static" data-keyboard="false">
 			<div class="modal-dialog modal-lg">
-				<div class="modal-content">
+				<div class="modal-content bg-primary-color">
 					<div class="modal-header">
-						<h1>L'histoire dont vous êtes le héros</h1>
+						<h1 class="text-center size26">L'histoire dont vous êtes le héros</h1>
 					</div>
 					<div class="modal-body">
 						<div class="container-fluid">
 							<div class="row">
 								<div class="col-lg-6 col-sm-12 col-register">
-									<h2>Créer un compte</h2>
+									<h2 class="text-center size22">Créer un compte</h2>
 									<form id="form-register" method="GET" action="/isLogged">
 										<div class="form-group">
 											<label for="login">Nom d'utilisateur</label>
@@ -45,11 +45,11 @@
 											<input type="radio" class="form-check-input" id="isAuthor" name="user-role" value="isAuthor">
 											<label class="form-check-label" for="isAuthor">Auteur</label>
 										</div>
-										<button type="submit" class="btn btn-success">S'inscrire</button>
+										<button type="submit" class="btn white bg-secondary-color">S'inscrire</button>
 									</form>
 								</div>
 								<div class="col-lg-6 col-sm-12 col-login">
-									<h2>Connexion</h2>
+									<h2 class="text-center size22">Connexion</h2>
 									<form id="form-login" method="POST" action="/createUser">
 										<div class="form-group">
 											<label for="login">Nom d'utilisateur</label>
@@ -59,7 +59,7 @@
 											<label for="password">Mot de passe</label>
 											<input type="password" class="form-control form-control-sm" id="password">
 										</div>
-										<button type="submit" class="btn btn-success">Se connecter</button>
+										<button type="submit" class="btn white bg-secondary-color">Se connecter</button>
 									</form>
 								</div>
 							</div>
