@@ -1,0 +1,49 @@
+body{
+	background: url(../img/img-foret.jpg) no-repeat center fixed;
+	background-size: cover;
+}
+
+#modal-connection{
+	margin-top: 6%;
+	color: #ffffff;
+}
+
+#modal-connection .modal-content{
+	background-color: #a38a63;
+	opacity: 0.9;
+}
+
+#modal-connection h1{
+	width: 100%;
+	margin: 0;
+	text-align: center;
+	font-family: 'Parisienne', cursive;
+	font-size: 46px;
+}
+
+#modal-connection h2{
+	text-align: center;
+	margin-bottom: 16px;
+}
+
+#modal-connection .btn{
+	border: 1px solid #007E33;
+	background-color: #007E33;
+}
+
+#modal-connection .btn:hover{
+	background-color: #00C851;
+}
+
+#modal-connection .col-register {
+	border-right: 1px solid lightgrey;
+}
+
+@media only screen and (max-width: 991px) {
+	#modal-connection .col-register {
+		border-right: none;
+		border-bottom: 1px solid lightgrey;
+		margin-bottom: 16px;
+		padding-bottom: 16px;
+	}
+}

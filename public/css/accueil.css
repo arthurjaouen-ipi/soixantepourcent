@@ -1,0 +1,45 @@
+.navbar{
+	background-color: rgb(186, 186, 186);
+}
+
+.navbar-brand{
+	font-family: 'Parisienne', cursive;
+	font-size: 24px;
+}
+
+.main{
+	margin-top: 75px;
+}
+
+.story-container{
+	padding: 15px;
+}
+
+.story, .story-text{
+	height: 300px;
+	border-radius: 5px;
+}
+
+.story{
+	background-color: red;
+}
+
+.story-text{
+	display: none;
+	width: calc(100% - 30px);
+	position: absolute;
+	top: 15px;
+	left: 15px;
+	background-color: rgba(186, 186, 186, 0.85);
+	padding: 30px;
+	overflow: auto;
+}
+
+.story-read{
+	margin-top: 15px;
+}
+
+footer{
+	background-color: rgb(186, 186, 186);
+	text-align: center;
+}
