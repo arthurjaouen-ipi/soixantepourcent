@@ -1,27 +1,32 @@
 package com.mesi.histoireHeros.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
-public class Story {
+public class Story implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+    private Long id;
     private String title;
     private String description;
     private String loginAuthor;
     private Boolean isPublic;
     @ManyToOne
+    @JoinColumn(name = "firstScene")
     private Scene firstScene;
 
     public Story() {
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

@@ -2,29 +2,26 @@ package com.mesi.histoireHeros.controller;
 
 import com.mesi.histoireHeros.model.User;
 import com.mesi.histoireHeros.repository.UserRepository;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import com.mesi.histoireHeros.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping(value="/api/user")
 public class UserController {
+    @Autowired
     private UserRepository userRepository;
+    @Autowired
+    private UserService userService;
 
     @RequestMapping(method= RequestMethod.GET,
             produces = "application/json",
             value="/isLogged")
-    public User isLogged(@RequestBody User user) {
-        try {
-            if (userRepository.findByLogin(user.getLogin()).getPassword().equals(user.getPassword())) {
-                return userRepository.findByLogin(user.getLogin());
-            }
-            return null;
+    public User isLogged(@RequestHeader("login") String login, @RequestHeader("password") String password) throws Exception {
+        if (userService.isValidUser(login, password)) {
+            return userRepository.findByLogin(login);
         }
-        catch(Exception e) {
-            return null;
-        }
+        throw new Exception("Le login/password ne matche pas");
     }
 
     @RequestMapping(method= RequestMethod.POST,

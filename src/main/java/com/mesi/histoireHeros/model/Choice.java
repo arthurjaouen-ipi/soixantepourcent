@@ -1,34 +1,46 @@
 package com.mesi.histoireHeros.model;
 
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
+import java.io.Serializable;
 
-public class Choice {
+@Entity
+public class Choice implements Serializable {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
     @ManyToOne
-    private int idOriginalScene;
-    @Id
+    @JoinColumn(name = "idOriginalScene")
+    private Scene originalScene;
     @ManyToOne
-    private int idTargetedScene;
+    @JoinColumn(name = "idTargettedScene")
+    private Scene targetedScene;
     private String name;
 
     public Choice() {
     }
 
-    public int getIdOriginalScene() {
-        return idOriginalScene;
+    public Long getId() {
+        return id;
     }
 
-    public void setIdOriginalScene(int idOriginalScene) {
-        this.idOriginalScene = idOriginalScene;
+    public void setId(Long id) {
+        this.id = id;
     }
 
-    public int getIdTargetedScene() {
-        return idTargetedScene;
+    public Scene getOriginalScene() {
+        return originalScene;
     }
 
-    public void setIdTargetedScene(int idTargetedScene) {
-        this.idTargetedScene = idTargetedScene;
+    public void setOriginalScene(Scene originalScene) {
+        this.originalScene = originalScene;
+    }
+
+    public Scene getTargetedScene() {
+        return targetedScene;
+    }
+
+    public void setTargetedScene(Scene targetedScene) {
+        this.targetedScene = targetedScene;
     }
 
     public String getName() {

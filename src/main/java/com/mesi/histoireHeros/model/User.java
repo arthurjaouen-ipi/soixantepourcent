@@ -2,9 +2,10 @@ package com.mesi.histoireHeros.model;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import java.io.Serializable;
 
 @Entity
-public class User {
+public class User implements Serializable {
     @Id
     private String login;
     private String password;

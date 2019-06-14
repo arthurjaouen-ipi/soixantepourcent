@@ -1,13 +1,19 @@
 package com.mesi.histoireHeros.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
-public class Scene {
+public class Scene implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+    private Long id;
+    @JsonIgnore
     @ManyToOne
+    @JoinColumn(name = "idStory")
     private Story story;
     private String title;
     private String description;
@@ -16,11 +22,11 @@ public class Scene {
     public Scene() {
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
