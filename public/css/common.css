@@ -1,0 +1,80 @@
+body{
+	font-family: 'Open Sans', sans-serif;
+	font-size: 14pt;
+	line-height: 20pt;
+	color: #575757;
+}
+
+h1, h2, h3, h4 {
+		font-family: 'Delius Unicase', cursive;
+		text-transform: capitalize;
+}
+
+.size28, h1 {
+	font-size: 28pt;	
+}
+.size26, h2 {
+	font-size: 26pt;
+}
+.size24, h3{
+	font-size: 24pt
+}
+.size22, h4{
+	font-size: 22pt
+}
+
+.size16{
+	font-size: 16pt;
+}
+
+
+.primary-color{
+	color: #CAA681;
+}
+.bg-primary-color{
+	background-color: #CAA681;
+}
+.secondary-color{
+ 	color:#8C9481;
+}
+.bg-secondary-color{
+	background-color:#8C9481;
+}
+.dark-grey{
+	color: #575757;
+}
+.bg-dark-grey{
+	background-color:#575757;
+}
+.light-grey{
+	color: #dbdbdb;
+}
+.bg-light-grey{
+	background-color: #dbdbdb;
+}
+
+.btn {
+	font-family: 'Delius Unicase', cursive;
+	font-weight: 700;
+	font-size: 14pt;
+	letter-spacing: 2;
+}
+
+
+.navbar{
+	background-color: rgb(186, 186, 186);
+}
+
+.navbar-brand{
+	font-family: 'Parisienne', cursive;
+	font-size: 24px;
+}
+
+.main{
+	margin-top: 75px;
+}
+
+footer{
+	background-color: rgb(186, 186, 186);
+	text-align: center;
+}

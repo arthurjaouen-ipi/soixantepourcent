@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+		<link href="https://fonts.googleapis.com/css?family=Parisienne&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Delius+Unicase:400,700|Open+Sans&display=swap" rel="stylesheet"> 
+		<link href="css/common.css" rel="stylesheet">
+		<link href="css/connexion.css" rel="stylesheet">
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+		<script src="js/connexion.js"></script>
+	</head>
+
+	<body>
+		<div id="modal-connection" class="modal" data-backdrop="static" data-keyboard="false">
+			<div class="modal-dialog modal-lg">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h1>L'histoire dont vous êtes le héros</h1>
+					</div>
+					<div class="modal-body">
+						<div class="container-fluid">
+							<div class="row">
+								<div class="col-lg-6 col-sm-12 col-register">
+									<h2>Créer un compte</h2>
+									<form id="form-register" method="GET" action="/isLogged">
+										<div class="form-group">
+											<label for="login">Nom d'utilisateur</label>
+											<input type="text" class="form-control form-control-sm" id="login" required>
+										</div>
+										<div class="form-group">
+											<label for="password">Mot de passe</label>
+											<input type="password" class="form-control form-control-sm" id="password" required>
+										</div>
+										<div class="form-group">
+											<label for="frontName">Pseudo</label>
+											<input type="text" class="form-control form-control-sm" id="frontName" required>
+										</div>
+										<div class="form-check" style="margin-bottom: 16px;">
+											<input type="radio" class="form-check-input" id="risReader" name="user-role" value="isReader" checked="true">
+											<label class="form-check-label" for="isReader" style="margin-right: 30px;">Lecteur</label>
+
+											<input type="radio" class="form-check-input" id="isAuthor" name="user-role" value="isAuthor">
+											<label class="form-check-label" for="isAuthor">Auteur</label>
+										</div>
+										<button type="submit" class="btn btn-success">S'inscrire</button>
+									</form>
+								</div>
+								<div class="col-lg-6 col-sm-12 col-login">
+									<h2>Connexion</h2>
+									<form id="form-login" method="POST" action="/createUser">
+										<div class="form-group">
+											<label for="login">Nom d'utilisateur</label>
+											<input type="text" class="form-control form-control-sm" id="login">
+										</div>
+										<div class="form-group">
+											<label for="password">Mot de passe</label>
+											<input type="password" class="form-control form-control-sm" id="password">
+										</div>
+										<button type="submit" class="btn btn-success">Se connecter</button>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,31 @@
+.story-container{
+	padding: 15px;
+}
+
+.story, .story-text{
+	height: 300px;
+	border-radius: 5px;
+}
+
+.story{
+	background-repeat: no-repeat;
+	background-position: center;
+	background-attachment: fixed;
+	background-size: cover;
+}
+
+.story-text{
+	display: none;
+	width: calc(100% - 30px);
+	position: absolute;
+	top: 15px;
+	left: 15px;
+	background-color: rgba(186, 186, 186, 0.85);
+	padding: 30px;
+	overflow: auto;
+}
+
+.story-read{
+	width: 120px;
+	margin: 15px 0 0 calc(50% - 60px);
+}
