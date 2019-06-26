@@ -61,8 +61,8 @@ public class StoryController {
             value="/get/{id}/scenes")
     public List<Scene> getStoryScenes(@PathVariable("id") int id,
                                       @RequestHeader("login") String login, @RequestHeader("password") String password) throws Exception {
-        if (login.equals("") && password.equals("") && !sceneRepository.findOne((long) id).getStory().getPublic()) {
-            throw new Exception("Cette scene est privée");
+        if (login.equals("") && password.equals("") && !storyRepository.findOne((long) id).getPublic()) {
+            throw new Exception("Cette histoire est privée");
         }
         else if (!userService.isValidUser(login, password)) {
             throw new Exception("Le login/password ne matche pas");

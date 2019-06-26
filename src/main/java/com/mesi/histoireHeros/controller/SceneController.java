@@ -1,13 +1,19 @@
 package com.mesi.histoireHeros.controller;
 
+import antlr.ASTNULLType;
+import com.mesi.histoireHeros.model.Choice;
 import com.mesi.histoireHeros.model.Scene;
 import com.mesi.histoireHeros.model.Story;
+import com.mesi.histoireHeros.repository.ChoiceRepository;
 import com.mesi.histoireHeros.repository.SceneRepository;
 import com.mesi.histoireHeros.repository.StoryRepository;
 import com.mesi.histoireHeros.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @RestController
 @RequestMapping(value="/api/scene")
@@ -16,6 +22,8 @@ public class SceneController {
     private StoryRepository storyRepository;
     @Autowired
     private SceneRepository sceneRepository;
+    @Autowired
+    private ChoiceRepository choiceRepository;
     @Autowired
     private UserService userService;
 
@@ -34,6 +42,29 @@ public class SceneController {
             throw new Exception("Vous n'etes pas autorisé à visualiser cette scene");
         }
         return sceneRepository.findOne((long) id);
+    }
+
+    @RequestMapping(method= RequestMethod.GET,
+            value="/get/{id}/scenes")
+    public List<Choice> getStoryScenes(@PathVariable("id") int id,
+                                       @RequestHeader("login") String login, @RequestHeader("password") String password) throws Exception {
+        if (login.equals("") && password.equals("") && !sceneRepository.findOne((long) id).getStory().getPublic()) {
+            throw new Exception("Cette scene est privée");
+        }
+        else if (!userService.isValidUser(login, password)) {
+            throw new Exception("Le login/password ne matche pas");
+        }
+        if (!sceneRepository.findOne((long) id).getStory().getPublic() &&
+                !sceneRepository.findOne((long) id).getStory().getLoginAuthor().equals(login)) {
+            throw new Exception("Vous n'etes pas autorisé à visualiser cette scene");
+        }
+        ArrayList<Choice> l = new ArrayList<>();
+        for(Choice i : choiceRepository.findAll()) {
+            if (i.getOriginalScene().getId() == id) {
+                l.add(i);
+            }
+        }
+        return l;
     }
 
     @RequestMapping(method= RequestMethod.POST,
