@@ -24,10 +24,16 @@ public class StoryController {
 
     @RequestMapping(method= RequestMethod.GET,
             value="/get")
-    public List<Story> getStories() throws Exception {
+    public List<Story> getStories(@RequestHeader("login") String login, @RequestHeader("password") String password) throws Exception {
+        if (!userService.isValidUser(login, password) && !(login.equals("") && password.equals(""))) {
+            throw new Exception("Le login/password ne matche pas");
+        }
         ArrayList<Story> l = new ArrayList<>();
         for(Story i : storyRepository.findAll()) {
             if (i.getPublic()) {
+                l.add(i);
+            }
+            else if (i.getLoginAuthor().equals(login)) {
                 l.add(i);
             }
         }
@@ -37,11 +43,14 @@ public class StoryController {
     @RequestMapping(method= RequestMethod.GET,
             value="/get/{id}")
     public Story getStory(@PathVariable("id") int id,
-            @RequestHeader("login") String login, @RequestHeader("password") String password) throws Exception {
-        if (!userService.isValidUser(login, password)) {
+                          @RequestHeader("login") String login, @RequestHeader("password") String password) throws Exception {
+        if (login.equals("") && password.equals("") && !sceneRepository.findOne((long) id).getStory().getPublic()) {
+            throw new Exception("Cette scene est privée");
+        }
+        else if (!userService.isValidUser(login, password)) {
             throw new Exception("Le login/password ne matche pas");
         }
-        if (!storyRepository.findOne((long) id).getPublic() &&
+        else if (!storyRepository.findOne((long) id).getPublic() &&
                 !storyRepository.findOne((long) id).getLoginAuthor().equals(login)) {
             throw new Exception("Vous n'etes pas autorisé à visualiser cette histoire");
         }
@@ -52,7 +61,10 @@ public class StoryController {
             value="/get/{id}/scenes")
     public List<Scene> getStoryScenes(@PathVariable("id") int id,
                                       @RequestHeader("login") String login, @RequestHeader("password") String password) throws Exception {
-        if (!userService.isValidUser(login, password)) {
+        if (login.equals("") && password.equals("") && !sceneRepository.findOne((long) id).getStory().getPublic()) {
+            throw new Exception("Cette scene est privée");
+        }
+        else if (!userService.isValidUser(login, password)) {
             throw new Exception("Le login/password ne matche pas");
         }
         if (!storyRepository.findOne((long) id).getPublic() &&
