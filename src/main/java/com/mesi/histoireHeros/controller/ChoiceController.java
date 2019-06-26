@@ -42,6 +42,12 @@ public class ChoiceController {
         if (!userService.isValidUser(login, password)) {
             throw new Exception("Le login/password ne matche pas");
         }
+        if (!choice.getOriginalScene().getStory().getLoginAuthor().equals(login)) {
+            throw new Exception("Vous n'etes pas autorisé à modifier cette histoire");
+        }
+        if (choice.getTargetedScene().getStory().getId() != choice.getOriginalScene().getStory().getId()) {
+            throw new Exception("Vous n'etes pas autorisé à lier des histoires differentes");
+        }
         return choiceRepository.save(choice);
     }
 

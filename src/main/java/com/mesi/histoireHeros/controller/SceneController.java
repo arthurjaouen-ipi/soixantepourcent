@@ -76,6 +76,9 @@ public class SceneController {
         if (!userService.isValidUser(login, password)) {
             throw new Exception("Le login/password ne matche pas");
         }
+        if (!scene.getStory().getLoginAuthor().equals(login)) {
+            throw new Exception("Vous n'etes pas autorisé à modifier cette histoire");
+        }
         return sceneRepository.save(scene);
     }
 

@@ -89,6 +89,9 @@ public class StoryController {
         if (!userService.isValidUser(login, password)) {
             throw new Exception("Le login/password ne matche pas");
         }
+        if (!story.getLoginAuthor().equals(login)) {
+            throw new Exception("Vous n'etes pas autorisé à créer une histoire avec un different login de créateur");
+        }
         return storyRepository.save(story);
     }
 
