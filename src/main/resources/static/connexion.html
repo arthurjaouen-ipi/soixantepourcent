@@ -3,7 +3,9 @@
 	<head>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 		<link href="https://fonts.googleapis.com/css?family=Parisienne&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Delius+Unicase:400,700|Open+Sans&display=swap" rel="stylesheet"> 
 		<link href="css/common.css" rel="stylesheet">
+		<link href="css/connexion.css" rel="stylesheet">
 
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
@@ -11,18 +13,18 @@
 		<script src="js/connexion.js"></script>
 	</head>
 
-	<body id="main-connexion">
+	<body id="main-connexion" class="bg-foret">
 		<div id="modal-connection" class="modal" data-backdrop="static" data-keyboard="false">
 			<div class="modal-dialog modal-lg">
-				<div class="modal-content">
+				<div class="modal-content bg-dark-primary-color">
 					<div class="modal-header">
-						<h1>L'histoire dont vous êtes le héros</h1>
+						<h2>L'histoire dont vous êtes le héros</h2>
 					</div>
 					<div class="modal-body">
 						<div class="container-fluid">
 							<div class="row">
 								<div class="col-lg-6 col-sm-12 col-register">
-									<h2>Créer un compte</h2>
+									<h3 class="text-center">Créer un compte</h3>
 									<form id="form-register" method="GET" action="/isLogged">
 										<div class="form-group">
 											<label for="login">Nom d'utilisateur</label>
@@ -43,11 +45,11 @@
 											<input type="radio" class="form-check-input" id="isAuthor" name="user-role" value="isAuthor">
 											<label class="form-check-label" for="isAuthor">Auteur</label>
 										</div>
-										<button type="submit" class="btn btn-success">S'inscrire</button>
+										<button type="submit" class="btn white bg-secondary-color">S'inscrire</button>
 									</form>
 								</div>
 								<div class="col-lg-6 col-sm-12 col-login">
-									<h2>Connexion</h2>
+									<h3 class="text-center">Connexion</h3>
 									<form id="form-login" method="POST" action="/createUser">
 										<div class="form-group">
 											<label for="login">Nom d'utilisateur</label>
@@ -57,7 +59,7 @@
 											<label for="password">Mot de passe</label>
 											<input type="password" class="form-control form-control-sm" id="password">
 										</div>
-										<button type="submit" class="btn btn-success">Se connecter</button>
+										<button type="submit" class="btn white bg-secondary-color">Se connecter</button>
 									</form>
 								</div>
 							</div>

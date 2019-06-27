@@ -1,20 +1,119 @@
 /*COMMON*/
-.navbar{
-	background-color: rgb(186, 186, 186);
+
+body{
+	font-family: 'Open Sans', sans-serif;
+	font-size: 14pt;
+	line-height: 20pt;
+	color: #575757;
 }
 
-.navbar-brand{
-	font-family: 'Parisienne', cursive;
-	font-size: 24px;
+h1, h2, h3, h4 {
+		font-family: 'Delius Unicase', cursive;
+		text-transform: capitalize;
+}
+
+.text-center {
+	text-align: center;
+}
+
+.text-left {
+	text-align: left;
+}
+
+.text-right {
+	text-align: right;
+}
+
+.text-justify {
+	text-align: justify;
+}
+
+.size28, h1 {
+	font-size: 28pt;	
+}
+.size26, h2 {
+	font-size: 26pt;
+}
+.size24, h3{
+	font-size: 24pt
+}
+.size22, h4{
+	font-size: 22pt
+}
+.size16{
+	font-size: 16pt;
+}
+.size12{
+	font-size: 12pt;
+}
+.size10{
+	font-size: 10pt;
+}
+.letter-spaced{
+	letter-spacing: 3px;
+}
+.primary-color{
+	color: #CAA681;
+}
+.bg-primary-color{
+	background-color: #CAA681;
+}
+.dark-primary-color{
+	color: #b3906d;
+}
+.bg-dark-primary-color{
+	background-color: #b3906d;
+}
+.secondary-color:hover, .dark-secondary-color{
+	color: #727b65;
+}
+.bg-secondary-color:hover, .bg-dark-secondary-color{
+	background-color: #727b65;
+}
+.secondary-color{
+ 	color:#8C9481;
+}
+.bg-secondary-color{
+	background-color:#8C9481;
+}
+.dark-grey{
+	color: #575757;
+}
+.bg-dark-grey{
+	background-color:#575757;
+}
+.really-dark-grey{
+	color: #1c1c1c;
+}
+.bg-really-dark-grey{
+	background-color:#1c1c1c;
+}
+
+.light-grey{
+	color: #dbdbdb;
+}
+.bg-light-grey{
+	background-color: #dbdbdb;
+}
+.white, .white:hover{
+	color: white;
+}
+.text-deco-none, .text-deco-none:hover {
+	text-decoration: none;
+}
+
+.btn {
+	font-family: 'Delius Unicase', cursive;
+	font-weight: 700;
+	font-size: 14pt;
+	letter-spacing: 2;
 }
 
 .main{
 	margin-top: 75px;
 }
-
-footer{
-	background-color: rgb(186, 186, 186);
-	text-align: center;
+.line-height-h1{
+	line-height: 56px;
 }
 
 /*CONNEXION*/
@@ -32,30 +131,25 @@ footer{
 }
 
 #modal-connection .modal-content{
-	background-color: #a38a63;
 	opacity: 0.9;
 }
 
-#modal-connection h1{
+#modal-connection h2{
 	width: 100%;
 	margin: 0;
 	text-align: center;
-	font-family: 'Parisienne', cursive;
-	font-size: 46px;
 }
 
-#modal-connection h2{
-	text-align: center;
-	margin-bottom: 16px;
+#modal-connection h3{
+	margin-bottom: 16px; 
 }
 
-#modal-connection .btn{
-	border: 1px solid #007E33;
-	background-color: #007E33;
-}
-
-#modal-connection .btn:hover{
-	background-color: #00C851;
+.bg-foret {
+	background: url(../img/img-foret.jpg);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-attachment: fixed;
+	background-size: cover;
 }
 
 #modal-connection .col-register {
@@ -86,7 +180,6 @@ footer{
 	background-position: center;
 	background-attachment: fixed;
 	background-size: cover;
-	background-color: red;
 }
 
 .story-text{
