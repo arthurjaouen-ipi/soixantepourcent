@@ -34,7 +34,7 @@ public class SceneController {
         if (login.equals("") && password.equals("") && !sceneRepository.findOne((long) id).getStory().getPublic()) {
             throw new Exception("Cette scene est privée");
         }
-        else if (!userService.isValidUser(login, password)) {
+        else if (!userService.isValidUser(login, password) && !(login.equals("") && password.equals(""))) {
             throw new Exception("Le login/password ne matche pas");
         }
         else if (!sceneRepository.findOne((long) id).getStory().getPublic() &&
@@ -46,12 +46,12 @@ public class SceneController {
 
     @RequestMapping(method= RequestMethod.GET,
             value="/get/{id}/scenes")
-    public List<Choice> getStoryScenes(@PathVariable("id") int id,
+    public List<Choice> getSceneChoices(@PathVariable("id") int id,
                                        @RequestHeader("login") String login, @RequestHeader("password") String password) throws Exception {
         if (login.equals("") && password.equals("") && !sceneRepository.findOne((long) id).getStory().getPublic()) {
             throw new Exception("Cette scene est privée");
         }
-        else if (!userService.isValidUser(login, password)) {
+        else if (!userService.isValidUser(login, password) && !(login.equals("") && password.equals(""))) {
             throw new Exception("Le login/password ne matche pas");
         }
         if (!sceneRepository.findOne((long) id).getStory().getPublic() &&

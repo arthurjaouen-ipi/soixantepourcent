@@ -23,7 +23,7 @@ public class ChoiceController {
         if (login.equals("") && password.equals("") && !choiceRepository.findOne((long) id).getOriginalScene().getStory().getPublic()) {
             throw new Exception("Ce choix est privée");
         }
-        else if (!userService.isValidUser(login, password)) {
+        else if (!userService.isValidUser(login, password) && !(login.equals("") && password.equals(""))) {
             throw new Exception("Le login/password ne matche pas");
         }
         else if (!choiceRepository.findOne((long) id).getOriginalScene().getStory().getPublic() &&
