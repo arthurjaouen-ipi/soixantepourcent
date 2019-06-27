@@ -6,9 +6,8 @@ function getAllStories(){
 	$.ajax({
 		type: "GET",
 		url: "http://localhost:5366/api/story/get",
-		headers: {"login": sessionStorage.getItem("login"), "password": sessionStorage.getItem("password")},
+		headers: {login: "", password: ""},
 		success: function(data){
-			console.log(data);
 			for(var key in data){
 				$(".stories-list").append("<div id='"+data[key]["id"]+"' firstscene='"+data[key]["firstScene"]["id"]+"' class='col-lg-4 col-md-6 col-sm-12 story-container'><div class='story'></div><div class='story-text'></div></div>");
 				$(".stories-list #" + data[key]["id"] + " .story").css("background", data[key]["firstScene"]["imageUrl"]);
@@ -35,5 +34,5 @@ function getAllStories(){
 }
 
 function readStory(idscene){
-	window.location = "readstory?idscene="+idscene;
+	window.location = "readstory.html?idscene="+idscene;
 }

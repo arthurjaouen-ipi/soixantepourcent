@@ -29,7 +29,7 @@ h1, h2, h3, h4 {
 }
 
 .size28, h1 {
-	font-size: 28pt;	
+	font-size: 28pt;
 }
 .size26, h2 {
 	font-size: 26pt;
@@ -106,7 +106,7 @@ h1, h2, h3, h4 {
 	font-family: 'Delius Unicase', cursive;
 	font-weight: 700;
 	font-size: 14pt;
-	letter-spacing: 2;
+	letter-spacing: 3px;
 }
 
 .main{
@@ -141,7 +141,7 @@ h1, h2, h3, h4 {
 }
 
 #modal-connection h3{
-	margin-bottom: 16px; 
+	margin-bottom: 16px;
 }
 
 .bg-foret {
@@ -199,3 +199,32 @@ h1, h2, h3, h4 {
 }
 
 /*DASHBOARD*/
+
+/*SCENE*/
+.scene-title{
+	 width: 100%;
+	 text-align: center;
+	 font-weight: bold;
+	 border: 1px solid black;
+ }
+
+.scene-text{
+	padding: 15px;
+	border: 1px solid black;
+}
+
+.scene-choices{
+
+}
+
+.choice{
+	margin: 5px 0;
+	padding: 2px 5px;
+	text-align: left;
+	border: 1px solid black;
+	border-radius: 3px;
+}
+
+.choice:hover{
+	cursor: pointer;
+}

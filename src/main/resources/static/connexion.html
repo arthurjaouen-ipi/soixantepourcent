@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<meta charset="UTF-8">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 		<link href="https://fonts.googleapis.com/css?family=Parisienne&display=swap" rel="stylesheet">
-		<link href="https://fonts.googleapis.com/css?family=Delius+Unicase:400,700|Open+Sans&display=swap" rel="stylesheet"> 
+		<link href="https://fonts.googleapis.com/css?family=Delius+Unicase:400,700|Open+Sans&display=swap" rel="stylesheet">
 		<link href="css/common.css" rel="stylesheet">
-		<link href="css/connexion.css" rel="stylesheet">
 
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
@@ -25,32 +25,29 @@
 							<div class="row">
 								<div class="col-lg-6 col-sm-12 col-register">
 									<h3 class="text-center">Créer un compte</h3>
-									<form id="form-register" method="GET" action="/isLogged">
+									<form id="form-register" method="POST" action="/api/user/createUser">
 										<div class="form-group">
 											<label for="login">Nom d'utilisateur</label>
-											<input type="text" class="form-control form-control-sm" id="login" required>
+											<input type="text" class="form-control form-control-sm" name="login" id="login" required>
 										</div>
 										<div class="form-group">
 											<label for="password">Mot de passe</label>
-											<input type="password" class="form-control form-control-sm" id="password" required>
+											<input type="password" class="form-control form-control-sm" name="password" id="password" required>
 										</div>
 										<div class="form-group">
-											<label for="frontName">Pseudo</label>
-											<input type="text" class="form-control form-control-sm" id="frontName" required>
+											<label for="username">Pseudo</label>
+											<input type="text" class="form-control form-control-sm" name="username" id="username" required>
 										</div>
-										<div class="form-check" style="margin-bottom: 16px;">
-											<input type="radio" class="form-check-input" id="risReader" name="user-role" value="isReader" checked="true">
-											<label class="form-check-label" for="isReader" style="margin-right: 30px;">Lecteur</label>
-
-											<input type="radio" class="form-check-input" id="isAuthor" name="user-role" value="isAuthor">
+										<div class="form-group">
+											<input type="checkbox" class="form-check-input" id="isAuthor" name="isAuthor" value="true">
 											<label class="form-check-label" for="isAuthor">Auteur</label>
 										</div>
 										<button type="submit" class="btn white bg-secondary-color">S'inscrire</button>
 									</form>
 								</div>
 								<div class="col-lg-6 col-sm-12 col-login">
-									<h3 class="text-center">Connexion</h3>
-									<form id="form-login" method="POST" action="/createUser">
+									<h3>Connexion</h3>
+									<form id="form-login" method="POST" action="/api/user/isLogged">
 										<div class="form-group">
 											<label for="login">Nom d'utilisateur</label>
 											<input type="text" class="form-control form-control-sm" id="login">
