@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<meta charset="UTF-8">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 		<link href="https://fonts.googleapis.com/css?family=Parisienne&display=swap" rel="stylesheet">
 		<link href="css/common.css" rel="stylesheet">
@@ -12,9 +13,19 @@
 		<script src="js/accueil.js"></script>
 	</head>
 
-	<body>
+	<body class="bg-foret">
+		<header>
+			<nav class="bg-really-dark-grey letter-spaced p-2">
+				<h1 class="text-center line-height-h1"><a class="white text-deco-none" href="./accueil.html">L'histoire dont vous êtes le héros</a></h1>
+			</nav>
+		</header>
+
 		<div class="container main">
-			<div class="row stories-list"></div>
+			<div class="row stories-list pb-5"></div>
 		</div>
+
+		<footer class="white text-center bg-really-dark-grey letter-spaced footer fixed-bottom">
+			<span>© SOIXANTEPOURCENT</span> | <span class="size10">Estelle Rivaud • Brenn Constant • Maxime Dufrasne • Thomas Palle • Arthur Jaouen</span>
+		</footer>
 	</body>
 </html>

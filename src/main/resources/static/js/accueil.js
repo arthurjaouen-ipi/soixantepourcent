@@ -9,15 +9,15 @@ function getAllStories(){
 		headers: {login: "", password: ""},
 		success: function(data){
 			for(var key in data){
-				$(".stories-list").append("<div id='"+data[key]["id"]+"' firstscene='"+data[key]["firstScene"]["id"]+"' class='col-lg-4 col-md-6 col-sm-12 story-container'><div class='story'></div><div class='story-text'></div></div>");
+				$(".stories-list").append("<div id='"+data[key]["id"]+"' firstscene='"+data[key]["firstScene"]["id"]+"' class='col-lg-4 col-md-6 col-sm-12 story-container'><div class='story bg-dark-primary-color'></div><div class='story-text'></div></div>");
 				$(".stories-list #" + data[key]["id"] + " .story").css("background", data[key]["firstScene"]["imageUrl"]);
-				$(".stories-list #" + data[key]["id"] + " .story-text").html(data[key]["description"] + "</br><button class='btn story-read'>Lire</button>");
+				$(".stories-list #" + data[key]["id"] + " .story-text").html("<h4>"+data[key]["title"]+"</h4><p class='mb-2'>"+data[key]["description"]+"</p><button class='btn mb-4 secondary-color story-read'>Lire</button>");
 
-				$("#" + data[key]["id"]).mouseenter(function(){
+				$("#" + data[key]["id"] + " .story").mouseenter(function(){
 					var parent = $(this).parent();
 					$(".story-text", parent).css("display","block");
 
-					$(".story-text", $(this)).mouseleave(function(){
+					$(".story-text", parent).mouseleave(function(){
 						$(this).css("display","none");
 					});
 				});

@@ -10,8 +10,8 @@ body{
 	cursor: pointer;
 }
 h1, h2, h3, h4 {
-		font-family: 'Delius Unicase', cursive;
-		text-transform: capitalize;
+    font-family: 'Delius Unicase', cursive;
+    text-transform: capitalize;
 }
 
 .text-center {
@@ -37,10 +37,10 @@ h1, h2, h3, h4 {
 	font-size: 26pt;
 }
 .size24, h3{
-	font-size: 24pt
+	font-size: 24pt;
 }
 .size22, h4{
-	font-size: 22pt
+	font-size: 22pt;
 }
 .size16{
 	font-size: 16pt;
@@ -113,11 +113,11 @@ h1, h2, h3, h4 {
 
 .main{
 	margin-top: 20px;
+    margin-bottom: 40px;
 }
 .line-height-h1{
 	line-height: 56px;
 }
-
 
 /*CONNEXION*/
 #main-connexion{
@@ -201,22 +201,62 @@ h1, h2, h3, h4 {
 	margin: 15px 0 0 calc(50% - 60px);
 }
 
-/*DASHBOARD*/
-
 /*SCENE*/
+.read-story{
+	margin-top: 50px;
+}
+
 .scene-title{
-	 width: 100%;
+	font-family: 'Delius Unicase', cursive;
+	width: 100%;
+	text-align: center;
  }
 .scene-text{
+	font-family: 'Delius Unicase', cursive;
 	text-align: justify;
 }
 .choice{
+	font-family: 'Delius Unicase', cursive;
+	padding: 5px;
+	margin-bottom: 15px;
 	word-wrap: break-word;
-	background-color: #fff;
-	background-clip: border-box;
+	background-color: rgba(186, 186, 186, 0.85);
 	border: 1px solid rgba(0,0,0,.125);
+	border-radius: 5px;
 }
 .end-story{
 	font-family: 'Delius Unicase', cursive;
 	text-transform: capitalize;
+}
+
+/*EDITSTORY*/
+.edit-story .scene-container{
+	padding: 15px;
+}
+
+.edit-story .scene, .edit-story .scene-text{
+	height: 300px;
+	border-radius: 5px;
+}
+
+.edit-story .scene{
+	background-repeat: no-repeat;
+	background-position: center;
+	background-attachment: fixed;
+	background-size: cover;
+}
+
+.edit-story .scene-text{
+	width: calc(100% - 30px);
+	position: absolute;
+	top: 15px;
+	left: 15px;
+	background-color: rgba(186, 186, 186, 0.85);
+	padding: 30px;
+	overflow: auto;
+}
+
+.edit-story .scene-edit{
+	width: 120px;
+	margin: 15px 0 0 calc(50% - 60px);
 }
