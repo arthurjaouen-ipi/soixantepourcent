@@ -78,7 +78,7 @@ INSERT INTO `Story` (`id`, `title`, `description`, `loginAuthor`, `isPublic`, `f
 
 --
 -- Structure de la table `User`
---
+--'
 
 CREATE TABLE `User` (
   `login` varchar(50) NOT NULL,

@@ -45,7 +45,7 @@ public class SceneController {
     }
 
     @RequestMapping(method= RequestMethod.GET,
-            value="/get/{id}/scenes")
+            value="/get/{id}/choices")
     public List<Choice> getSceneChoices(@PathVariable("id") int id,
                                        @RequestHeader("login") String login, @RequestHeader("password") String password) throws Exception {
         if (login.equals("") && password.equals("") && !sceneRepository.findOne((long) id).getStory().getPublic()) {
